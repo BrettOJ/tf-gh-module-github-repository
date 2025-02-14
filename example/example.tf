@@ -28,4 +28,20 @@ module "github_repository" {
   template = null
 
   security_and_analysis = null
+
+  environments = {
+    production = {
+      environment = "production"
+      prevent_self_review = true
+      reviewers = {
+        users = ["octocat"]
+      }
+      deployment_branch_policy = {
+        protected_branches     = true
+        custom_branch_policies = false
+      }
+    }
+  }
+
 }
+

@@ -211,5 +211,18 @@ variable "security_and_analysis" {
   })
   default = null
 }
-
-
+variable "environments" {
+  description = "A map of environments with their configurations"
+  type        = map(object({
+    environment = string
+    prevent_self_review = bool
+    reviewers = object({
+      users = list(string)
+    })
+    deployment_branch_policy = object({
+      protected_branches     = bool
+      custom_branch_policies = bool
+    })
+  }))
+  default = {}
+}

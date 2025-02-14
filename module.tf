@@ -2,7 +2,6 @@ resource "github_repository" "github_repo" {
   name                                    = var.name
   description                             = var.description
   homepage_url                            = var.homepage_url
-  #private                                 = var.private
   visibility                              = var.visibility
   has_issues                              = var.has_issues
   has_projects                            = var.has_projects
@@ -60,5 +59,20 @@ resource "github_repository" "github_repo" {
       }
     }
   }
+}
 
+
+resource "github_repository_environment" "github_repo_env" {
+  for_each = var.environments != null ? var.environments : {}
+
+  environment         = each.value.environment
+  repository          = github_repository.github_repo.name
+  prevent_self_review = each.value.prevent_self_review
+  reviewers {
+    users = each.value.reviewers.users
+  }
+  deployment_branch_policy {
+    protected_branches     = each.value.deployment_branch_policy.protected_branches
+    custom_branch_policies = each.value.deployment_branch_policy.custom_branch_policies
+  }
 }
