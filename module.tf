@@ -69,7 +69,7 @@ resource "github_repository_environment" "github_repo_env" {
   repository          = github_repository.github_repo.name
   prevent_self_review = each.value.prevent_self_review
   reviewers {
-    users = [each.value.reviewers.users]
+    users = each.value.reviewers[users]
   }
   deployment_branch_policy {
     protected_branches     = each.value.deployment_branch_policy.protected_branches
