@@ -27,15 +27,6 @@ module "github_repository" {
   allow_update_branch                     = var.allow_update_branch
   topics                                  = var.topics
 
-  pages = {
-    source = {
-      branch = var.pages_source_branch
-      path   = var.pages_source_path
-    }
-    build_type = var.pages_build_type
-    cname      = var.pages_cname
-  }
-
   template = {
     owner                = var.template_owner
     repository           = var.template_repository
