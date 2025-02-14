@@ -159,28 +159,11 @@ variable "archive_on_destroy" {
   default     = false
 }
 
-variable "pages" {
-  description = "The repository's GitHub Pages configuration."
-  type        = any
-  default     = null
-}
-
-variable "security_and_analysis" {
-  description = "The repository's security and analysis configuration."
-  type        = any
-  default     = null
-}
 
 variable "topics" {
   description = "The list of topics of the repository."
   type        = list(string)
   default     = []
-}
-
-variable "template" {
-  description = "Use a template repository to create this resource."
-  type        = any
-  default     = null
 }
 
 variable "vulnerability_alerts" {
