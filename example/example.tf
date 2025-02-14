@@ -25,22 +25,7 @@ module "github_repository" {
   allow_update_branch                     = var.allow_update_branch
   topics                                  = var.topics
 
-  template = {
-    owner                = var.template_owner
-    repository           = var.template_repository
-    include_all_branches = var.template_include_all_branches
-  }
+  template = null
 
-  security_and_analysis = {
-    advanced_security = {
-      status = var.security_and_analysis_advanced_security_status
-    }
-    secret_scanning = {
-      status = var.security_and_analysis_secret_scanning_status
-    }
-    secret_scanning_push_protection = {
-      status = var.security_and_analysis_secret_scanning_push_protection_status
-    }
-  }
+  security_and_analysis = null
 }
-

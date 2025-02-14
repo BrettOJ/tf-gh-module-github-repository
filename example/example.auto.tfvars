@@ -16,7 +16,7 @@ delete_branch_on_merge                                       = false
 web_commit_signoff_required                                  = false
 has_downloads                                                = true
 auto_init                                                    = false
-gitignore_template                                           = "terraform"
+gitignore_template                                           = null
 license_template                                             = "mit"
 archived                                                     = false
 archive_on_destroy                                           = false
@@ -31,9 +31,9 @@ pages_cname                                                  = null
 template_owner                                               = "BrettOJ"
 template_repository                                          = "tf-gh-module-github-repository"
 template_include_all_branches                                = false
-security_and_analysis_advanced_security_status               = "enabled"
-security_and_analysis_secret_scanning_status                 = "enabled"
-security_and_analysis_secret_scanning_push_protection_status = "enabled"
+security_and_analysis_advanced_security_status               = null
+security_and_analysis_secret_scanning_status                 = null
+security_and_analysis_secret_scanning_push_protection_status = null
 
 
 
