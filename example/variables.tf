@@ -18,13 +18,11 @@ variable "homepage_url" {
 variable "private" {
   description = "Set to true to create a private repository."
   type        = bool
-  default     = false
 }
 
 variable "visibility" {
   description = "Can be public or private. Overrides the private parameter."
   type        = string
-  default     = null
 }
 
 variable "has_issues" {
