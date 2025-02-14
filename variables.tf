@@ -15,10 +15,6 @@ variable "homepage_url" {
   default     = null
 }
 
-variable "private" {
-  description = "Set to true to create a private repository."
-  type        = bool
-}
 
 variable "visibility" {
   description = "Can be public or private. Overrides the private parameter."

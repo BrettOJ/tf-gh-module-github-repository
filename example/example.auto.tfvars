@@ -3,7 +3,6 @@
 name                                                         = "test-repository"
 description                                                  = "This is an example repository."
 homepage_url                                                 = ""
-private                                                      = false
 visibility                                                   = "public"
 has_issues                                                   = true
 has_projects                                                 = true
@@ -19,7 +18,6 @@ has_downloads                                                = true
 auto_init                                                    = false
 gitignore_template                                           = "terraform"
 license_template                                             = "mit"
-default_branch                                               = "main"
 archived                                                     = false
 archive_on_destroy                                           = false
 vulnerability_alerts                                         = true

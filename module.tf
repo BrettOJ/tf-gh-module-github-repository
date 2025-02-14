@@ -2,7 +2,7 @@ resource "github_repository" "github_repo" {
   name                                    = var.name
   description                             = var.description
   homepage_url                            = var.homepage_url
-  private                                 = var.private
+  #private                                 = var.private
   visibility                              = var.visibility
   has_issues                              = var.has_issues
   has_projects                            = var.has_projects
