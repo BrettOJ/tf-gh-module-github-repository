@@ -30,20 +30,20 @@ resource "github_repository" "github_repo" {
     for_each = var.pages != null ? [var.pages] : []
     content {
       source {
-        branch = pages.source.branch
-        path   = pages.source.path
+        branch = var.pages.source.branch
+        path   = var.pages.source.path
       }
-      build_type = pages.build_type
-      cname      = pages.cname
+      build_type = var.pages.build_type
+      cname      = var.pages.cname
     }
   }
 
   dynamic "template" {
     for_each = var.template != null ? [var.template] : []
     content {
-      owner                = template.owner
-      repository           = template.repository
-      include_all_branches = template.include_all_branches
+      owner                = var.template.owner
+      repository           = var.template.repository
+      include_all_branches = var.template.include_all_branches
     }
   }
 
@@ -51,13 +51,13 @@ resource "github_repository" "github_repo" {
     for_each = var.security_and_analysis != null ? [var.security_and_analysis] : []
     content {
       advanced_security {
-        status = security_and_analysis.advanced_security.status
+        status = var.security_and_analysis.advanced_security.status
       }
       secret_scanning {
-        status = security_and_analysis.secret_scanning.status
+        status = var.security_and_analysis.secret_scanning.status
       }
       secret_scanning_push_protection {
-        status = security_and_analysis.secret_scanning_push_protection.status
+        status = var.security_and_analysis.secret_scanning_push_protection.status
       }
     }
   }
