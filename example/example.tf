@@ -33,13 +33,13 @@ module "github_repository" {
     production = {
       environment = "production"
       prevent_self_review = true
-      reviewers = {
-        users = ["octocat"]
-      }
-      deployment_branch_policy = {
-        protected_branches     = true
-        custom_branch_policies = false
-      }
+        reviewers = {
+          users = ["octocat"]
+        }
+        deployment_branch_policy = {
+          protected_branches     = true
+          custom_branch_policies = false
+        }
     }
   }
 
