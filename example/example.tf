@@ -1,5 +1,5 @@
 module "github_repository" {
-    source = "git::https://github.com/BrettOJ/tf-gh-module-github-repository?ref=main"
+  source                                  = "git::https://github.com/BrettOJ/tf-gh-module-github-repository?ref=main"
   name                                    = var.name
   description                             = var.description
   homepage_url                            = var.homepage_url
@@ -28,30 +28,30 @@ module "github_repository" {
   topics                                  = var.topics
 
   pages = {
-        source ={
-            branch = var.pages_source_branch
-            path   = var.pages_source_path
-        }
-        build_type = var.pages_build_type
-        cname      = var.pages_cname
-        }
-
-template = {
-      owner                = var.template_owner
-      repository           = var.template_repository
-      include_all_branches = var.template_include_all_branches
+    source = {
+      branch = var.pages_source_branch
+      path   = var.pages_source_path
     }
+    build_type = var.pages_build_type
+    cname      = var.pages_cname
+  }
 
-security_and_analysis = {
-      advanced_security = {
-        status = var.security_and_analysis_advanced_security_status
-      }
-      secret_scanning ={
-        status = var.security_and_analysis_secret_scanning_status
-      }
-      secret_scanning_push_protection ={
-        status = var.security_and_analysis_secret_scanning_push_protection_status
-      }
+  template = {
+    owner                = var.template_owner
+    repository           = var.template_repository
+    include_all_branches = var.template_include_all_branches
+  }
+
+  security_and_analysis = {
+    advanced_security = {
+      status = var.security_and_analysis_advanced_security_status
     }
+    secret_scanning = {
+      status = var.security_and_analysis_secret_scanning_status
+    }
+    secret_scanning_push_protection = {
+      status = var.security_and_analysis_secret_scanning_push_protection_status
+    }
+  }
 }
 
