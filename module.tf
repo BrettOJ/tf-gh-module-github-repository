@@ -79,12 +79,12 @@ resource "github_repository_environment" "github_repo_env" {
 }
 
 
-resource "github_repository_environment_deployment_policy" "test" {
+resource "github_repository_environment_deployment_policy" "github_repo_env_deployment_policy" {
 
   for_each = var.deployment_policies != null ? var.deployment_policies : {}
 
-  repository     = lookup(each.value, "repository", null)
-  environment    = lookup(each.value, "environment", null)
+  repository     = github_repository.github_repo.name
+  environment    = github_repository_environment.github_repo_env.environment
   branch_pattern = lookup(each.value, "branch_pattern", null)
   tag_pattern    = lookup(each.value, "tag_pattern", null)
 }
