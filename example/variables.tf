@@ -243,13 +243,9 @@ variable "environments" {
   type        = map(object({
     environment = string
     prevent_self_review = bool
-    reviewers = object({
-      users = list(string)
-    })
-    deployment_branch_policy = object({
-      protected_branches     = bool
-      custom_branch_policies = bool
-    })
-  }))
-  default = {}
+    reviewers_users = list(string)
+    deployment_branch_policy_protected_branches = bool
+    deployment_branch_policy_custom_branch_policies = bool
+    }) )
+  default = null
 }

@@ -30,18 +30,14 @@ module "github_repository" {
   security_and_analysis = null
 
   environments = {
-    production = {
-      environment = "production"
-      prevent_self_review = true
-        reviewers = {
-          users = ["octocat"]
-        }
-        deployment_branch_policy = {
-          protected_branches     = true
-          custom_branch_policies = false
-        }
+      production = {
+          environment = "production"
+          prevent_self_review = true
+          reviewers_users = ["BrettOJ"]
+          deployment_branch_policy_protected_branches = true
+          deployment_branch_policy_custom_branch_policies = false
+          }
     }
-  }
 
-}
+  }
 
