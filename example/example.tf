@@ -39,5 +39,14 @@ module "github_repository" {
           }
     }
 
+  deployment_policies = {
+    production = {
+      repository  = "BrettOJ/tf-gh-module-github-repository"
+      environment    = "production"
+      branch_pattern = "main"
+      tag_pattern    = "v*"
+    }
   }
+
+}
 

@@ -249,3 +249,14 @@ variable "environments" {
     }) )
   default = null
 }
+
+variable "deployment_policies" {
+  description = "A map of deployment policies with their configurations"
+  type = map(object({
+    repository     = string
+    environment    = string
+    branch_pattern = string
+    tag_pattern    = string
+  }))
+  default = null
+}

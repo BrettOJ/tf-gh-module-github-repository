@@ -213,12 +213,23 @@ variable "security_and_analysis" {
 }
 variable "environments" {
   description = "A map of environments with their configurations"
-  type        = map(object({
-    environment = string
-    prevent_self_review = bool
-    reviewers_users = list(string)
-    deployment_branch_policy_protected_branches = bool
+  type = map(object({
+    environment                                     = string
+    prevent_self_review                             = bool
+    reviewers_users                                 = list(string)
+    deployment_branch_policy_protected_branches     = bool
     deployment_branch_policy_custom_branch_policies = bool
-    }) )
+  }))
+  default = null
+}
+
+variable "deployment_policies" {
+  description = "A map of deployment policies with their configurations"
+  type = map(object({
+    repository     = string
+    environment    = string
+    branch_pattern = string
+    tag_pattern    = string
+  }))
   default = null
 }
