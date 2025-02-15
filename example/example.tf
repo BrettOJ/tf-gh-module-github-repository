@@ -1,3 +1,8 @@
+data "github_user" "current" {
+  username = "BrettOJ"
+}
+
+
 module "github_repository" {
   source                                  = "git::https://github.com/BrettOJ/tf-gh-module-github-repository?ref=main"
   name                                    = var.name
@@ -33,9 +38,11 @@ module "github_repository" {
     production = {
       environment                                     = "production"
       prevent_self_review                             = true
-      reviewers_users                                 = ["BrettOJ"]
-      deployment_branch_policy_protected_branches     = true
-      deployment_branch_policy_custom_branch_policies = false
+      can_admins_bypass                             = false
+      wait_timer                                     = 10
+      reviewers_users                                 = ["18179286"]
+      deployment_branch_policy_protected_branches     = false
+      deployment_branch_policy_custom_branch_policies = true
     }
   }
 

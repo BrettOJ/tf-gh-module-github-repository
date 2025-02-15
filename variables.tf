@@ -216,6 +216,8 @@ variable "environments" {
   type = map(object({
     environment                                     = string
     prevent_self_review                             = bool
+    can_admins_bypass                              = bool
+    wait_timer                                     = number
     reviewers_users                                 = list(string)
     deployment_branch_policy_protected_branches     = bool
     deployment_branch_policy_custom_branch_policies = bool
