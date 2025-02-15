@@ -63,17 +63,17 @@ resource "github_repository" "github_repo" {
 
 
 resource "github_repository_environment" "github_repo_env" {
-  
+
   for_each = var.environments != null ? var.environments : {}
 
-  environment         = lookup(each.value, "environemt", [])
+  environment         = lookup(each.value, "environemt", null )
   repository          = github_repository.github_repo.name
-  prevent_self_review = lookup(each.value, "prevent_self_review", [])
+  prevent_self_review = lookup(each.value, "prevent_self_review", null )
   reviewers {
     users = lookup(each.value, "reviewer_users", [])
   }
   deployment_branch_policy {
-    protected_branches     = lookup(each.value, "deployment_branch_policy_protected_branches", [] )
-    custom_branch_policies = lookup(each.value, "deployment_branch_policy_custom_branch_policies", [] )
+    protected_branches     = lookup(each.value, "deployment_branch_policy_protected_branches", null )
+    custom_branch_policies = lookup(each.value, "deployment_branch_policy_custom_branch_policies", null )
   }
 }
