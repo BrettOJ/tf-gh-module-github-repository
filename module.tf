@@ -76,6 +76,7 @@ resource "github_repository_environment" "github_repo_env" {
     protected_branches     = lookup(each.value, "deployment_branch_policy_protected_branches", null)
     custom_branch_policies = lookup(each.value, "deployment_branch_policy_custom_branch_policies", null)
   }
+  depends_on = [ github_repository.github_repo ]
 }
 
 
@@ -87,4 +88,5 @@ resource "github_repository_environment_deployment_policy" "github_repo_env_depl
   environment    = github_repository_environment.github_repo_env[each.key].environment
   branch_pattern = lookup(each.value, "branch_pattern", null)
   tag_pattern    = lookup(each.value, "tag_pattern", null)
+  depends_on = [ github_repository_environment.github_repo_env ]
 }
