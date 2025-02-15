@@ -69,7 +69,7 @@ resource "github_repository_environment" "github_repo_env" {
   environment         = lookup(each.value, "environment", null)
   repository          = github_repository.github_repo.name
   prevent_self_review = lookup(each.value, "prevent_self_review", null)
-  can_admins_bypass  = lookup(each.value, "can_admins_bypass", null)l
+  can_admins_bypass  = lookup(each.value, "can_admins_bypass", null)
   wait_timer = lookup(each.value, "wait_timer", null)
   reviewers {
     users = lookup(each.value, "reviewer_users", [])
