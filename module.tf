@@ -72,7 +72,7 @@ resource "github_repository_environment" "github_repo_env" {
   can_admins_bypass  = lookup(each.value, "can_admins_bypass", null)
   wait_timer = lookup(each.value, "wait_timer", null)
   reviewers {
-    users = lookup(each.value, "reviewer_users", [])
+    users = lookup(each.value, "reviewers_users", [])
   }
   deployment_branch_policy {
     protected_branches     = lookup(each.value, "deployment_branch_policy_protected_branches", null)
