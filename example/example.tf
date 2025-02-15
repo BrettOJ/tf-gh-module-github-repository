@@ -1,4 +1,4 @@
-data "github_user" "current" {
+data "github_user" "add_user" {
   username = "BrettOJ"
 }
 
@@ -40,7 +40,7 @@ module "github_repository" {
       prevent_self_review                             = true
       can_admins_bypass                             = false
       wait_timer                                     = 10
-      reviewers_users                                 = ["18179286"]
+      reviewers_users                                 = [data.github_user.add_user.id]
       deployment_branch_policy_protected_branches     = false
       deployment_branch_policy_custom_branch_policies = true
     }
