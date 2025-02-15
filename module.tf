@@ -83,8 +83,8 @@ resource "github_repository_environment_deployment_policy" "github_repo_env_depl
 
   for_each = var.deployment_policies != null ? var.deployment_policies : {}
 
-  repository     = github_repository.github_repo.name
-  environment    = github_repository_environment.github_repo_env.environment
+  repository     = github_repository.github_repo[each.key].name
+  environment    = github_repository_environment.github_repo_env[each.key].environment
   branch_pattern = lookup(each.value, "branch_pattern", null)
   tag_pattern    = lookup(each.value, "tag_pattern", null)
 }
