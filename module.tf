@@ -66,7 +66,7 @@ resource "github_repository_environment" "github_repo_env" {
 
   for_each = var.environments != null ? var.environments : {}
 
-  environment         = lookup(each.value, "environemt", null )
+  environment         = lookup(each.value, "environment", null )
   repository          = github_repository.github_repo.name
   prevent_self_review = lookup(each.value, "prevent_self_review", null )
   reviewers {
