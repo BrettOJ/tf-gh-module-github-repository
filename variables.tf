@@ -233,3 +233,9 @@ variable "deployment_policies" {
   }))
   default = null
 }
+
+variable "create_readme" {
+  description = "Set to true to create a README.md file."
+  type        = bool
+  default     = false
+}

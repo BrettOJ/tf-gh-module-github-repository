@@ -92,3 +92,23 @@ resource "github_repository_environment_deployment_policy" "github_repo_env_depl
   tag_pattern    = lookup(each.value, "tag_pattern", null)
   depends_on = [ github_repository_environment.github_repo_env ]
 }
+
+
+resource "github_repository" "foo" {
+  name      = "tf-acc-test-%s"
+  auto_init = true
+}
+
+resource "github_repository_file" "foo" {
+  for_each = var.create_readme == true ? {} : {}
+
+  repository          = github_repository.github_repo.name
+  branch              = "main"
+  file                = "README.md"
+  content             = github_repository.github_repo.description
+  commit_message      = "Managed by Terraform"
+  commit_author       = "Terraform User"
+  commit_email        = "terraform@example.com"
+  overwrite_on_create = true
+}
+
