@@ -29,7 +29,7 @@ module "github_repository" {
   ignore_vulnerability_alerts_during_read = var.ignore_vulnerability_alerts_during_read
   allow_update_branch                     = var.allow_update_branch
   topics                                  = var.topics
-  create_readme                           = true
+  create_readme                           = false
 
   template = null
 
