@@ -95,7 +95,7 @@ resource "github_repository_environment_deployment_policy" "github_repo_env_depl
 
 
 resource "github_repository_file" "read_me_file" {
-   for_each = var.create_readme ? [true] : []
+   for_each = var.create_readme ? { "instance" = 1 } : {}
 
   repository          = github_repository.github_repo.name
   branch              = "main"
