@@ -39,8 +39,8 @@ module "github_repository" {
     production = {
       environment                                     = "production"
       prevent_self_review                             = true
-      can_admins_bypass                             = false
-      wait_timer                                     = 10
+      can_admins_bypass                               = false
+      wait_timer                                      = 10
       reviewers_users                                 = [data.github_user.add_user.id]
       deployment_branch_policy_protected_branches     = false
       deployment_branch_policy_custom_branch_policies = true
